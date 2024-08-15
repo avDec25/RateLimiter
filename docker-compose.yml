@@ -1,0 +1,20 @@
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    volumes:
+      - C:\Users\user\IdeaProjects\RateLimiter\localdata\mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=sql8pass
+
+  redis:
+    image: redis:latest
+    restart: always
+    command: /bin/sh -c "redis-server --requirepass $$REDIS_HOST_PASSWORD"
+    env_file:
+      - redis.env
+    ports:
+      - "6379:6379"
+    volumes:
+      - C:\Users\user\IdeaProjects\RateLimiter\localdata\redis:/data
