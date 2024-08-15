@@ -16,7 +16,7 @@ public class UserController {
     }
 
     @GetMapping("busywait")
-    public ResponseEntity<?> busyWait(@RequestParam Integer uid, @RequestParam long timespan) throws InterruptedException {
+    public ResponseEntity<?> busyWait(@RequestParam Integer uid, @RequestParam long timespan) {
         return ResponseEntity.ok(userService.performBusyWait(uid, timespan));
     }
 }
