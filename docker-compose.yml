@@ -18,3 +18,13 @@ services:
       - "6379:6379"
     volumes:
       - C:\Users\user\IdeaProjects\RateLimiter\localdata\redis:/data
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=rabbitpass
+    ports:
+      - "5672:5672"
+      - "15672:15672"
